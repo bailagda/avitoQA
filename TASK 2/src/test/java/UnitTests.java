@@ -1,5 +1,3 @@
-package org.example;
-
 import com.microsoft.playwright.*;
 import org.junit.Test;
 
@@ -10,7 +8,7 @@ import static com.microsoft.playwright.assertions.PlaywrightAssertions.*;
 public class UnitTests {
     private Playwright playwright = Playwright.create();
     private Browser browser = playwright.chromium().launch(
-            new BrowserType.LaunchOptions().setHeadless(true));
+            new BrowserType.LaunchOptions().setHeadless(false));
     private Page page = browser.newPage();
     private APIRequest request = playwright.request();
     private APIRequestContext requestContext = request.newContext() ;
@@ -62,5 +60,4 @@ public class UnitTests {
         page.close();
         browser.close();
     }
-
 }
